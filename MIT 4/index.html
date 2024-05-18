@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cont">
+    <div class="title">
+        <h1>CONTACT MANAGER</h1>
+    </div>
+    <div class="main">
+        <h2>Add Contact</h2>
+        <label for="name">Name</label><br>
+        <input type="text" id="name" autofocus><br><br>
+        <label for="mail">Email address</label><br>
+        <input type="email"  id="mail"><br><br>
+        <label for="name">Category</label><br>
+        <select name="sel" id="cat">
+            <option value="Home">Home</option>
+            <option value="School">School</option>
+            <option value="College">College</option>
+            <option value="Work">Work</option>
+
+        </select><br><br>
+        <button id="submit" onclick="submit()">Submit</button><br><br>
+
+        <div class="line"></div>
+    </div>
+    <div class="cont2">
+    <ul id="dis">
+    </ul>
+</div>
+</div>
+</body>
+<script>
+    function submit(){
+    let name=document.getElementById("name").value;
+    let mail=document.getElementById("mail").value;
+    let cat=document.getElementById("cat").value;
+    let token=localStorage.getItem('user');
+    let user;
+    if (name.trim() === "" || mail.trim() === "") {
+                alert("Please Enter both Name and Mail.");
+                return;
+            }
+
+    let dis=document.getElementById("dis");
+    let disItem=document.createElement("p");
+    dis.innerHTML+=`  <div class="box">
+            <div class="left">
+            <p><strong>${name}</strong></p>
+            <p>${mail}</p>
+            <p class="categ"><strong>Category: </strong>${cat}</p></div>
+            <div class="del"><button id="del" onclick="del(event)">Delete</button></div>
+
+        </div>`;
+    dis.appendChild(disItem);
+if(token==null){
+    user=[]
+}
+else{
+    user=JSON.parse(token)
+}
+
+user.push({name:name,mail:mail,cat:cat});
+localStorage.setItem('user',JSON.stringify(user));
+console.log(user)
+        
+    }
+function del(event){
+        event.target.parentElement.parentElement.remove();
+}
+    
+</script>
+</html>

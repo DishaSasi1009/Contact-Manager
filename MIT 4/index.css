@@ -1,0 +1,78 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+.title{
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 1px;
+}
+.main{
+    padding: 5px 100px;
+
+}
+#submit{
+    background-color: blue;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid white;
+    width: 90px;
+    height: 30px;
+    cursor: pointer;
+}
+#submit:hover{
+    background-color: white;
+    color: blue;
+    border: 1px solid blue;
+
+}
+#name, #mail,#cat{
+    width: 90%;
+    height: 25px;
+}
+
+#cat{
+    width: 91%;
+    height: 35px ;
+}
+.line{
+    border: 1px solid rgb(208, 208, 208);
+    width: 90%;
+    
+}
+.categ{
+    color: gray;
+
+
+}
+
+.cont2{
+    padding: 1px 100px;
+}
+.box{
+    border: 1px solid black;
+    border-radius: 7px;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+    width: 840px;
+    button{
+        color: red;
+        border: 1px solid red;
+        padding: 5px;
+        border-radius: 7px;
+        background-color: white;
+        cursor: pointer;
+        width: 90px;
+        height: 30px;
+    }
+    button:hover{
+        background-color: grey;
+        color: white;
+        border: white;
+    }
+}
